@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Magical Mother’s Day for Yvonne</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Lora', serif;
             background: linear-gradient(135deg, #1e1e2f, #3b2a5d);
             color: #fff;
             overflow-x: hidden;
@@ -92,26 +92,7 @@
             text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
         }
 
-        /* Upload Section */
-        .upload-area {
-            border: 2px dashed #ffb6c1;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        .upload-area:hover {
-            background: rgba(255, 182, 193, 0.2);
-            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-        }
-
-        .upload-area p {
-            font-size: 1.2rem;
-            color: #e6e6fa;
-        }
-
+        /* Media Section */
         #media-preview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -131,6 +112,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s;
+        }
+
+        .media-item video {
+            width: 100%;
+            height: auto;
         }
 
         .media-item:hover img {
@@ -155,92 +141,12 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.8rem;
-            color: #ffb6c1;
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            color: #fff;
             text-align: center;
             box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
             animation: scrollReveal 2s ease-in-out;
-        }
-
-        /* Guestbook Section */
-        #guestbook-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        #guestbook-form input, #guestbook-form textarea {
-            padding: 12px;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-family: 'Playfair Display', serif;
-        }
-
-        #guestbook-form input::placeholder, #guestbook-form textarea::placeholder {
-            color: #e6e6fa;
-            opacity: 0.7;
-        }
-
-        #guestbook-entries {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .guestbook-entry {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
-        }
-
-        .guestbook-entry strong {
-            color: #ffb6c1;
-        }
-
-        /* Button */
-        .btn {
-            background: linear-gradient(135deg, #ffb6c1, #9370db);
-            color: #fff;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-        }
-
-        /* Music Toggle */
-        #music-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #ffb6c1, #9370db);
-            color: #fff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-            transition: transform 0.3s;
-        }
-
-        #music-toggle:hover {
-            transform: scale(1.1);
         }
 
         /* Animations */
@@ -353,19 +259,21 @@
     <!-- Main Content -->
     <div class="container">
         <!-- Share Memories -->
-        <section id="upload-section">
+        <section id="media-section">
             <h2>Share Memories</h2>
-            <div class="upload-area" id="upload-area">
-                <p>Drag & drop photos or videos, or click to upload</p>
-                <input type="file" id="media-upload" accept="image/*,video/*" multiple hidden>
-            </div>
             <div id="media-preview">
-                <!-- Preloaded Photos -->
+                <!-- Preloaded Photos and Video -->
                 <div class="media-item">
-                    <img src="https://images.unsplash.com/photo-1517841905536-39e6482a4e44" alt="Yvonne with flowers">
+                    <img src="von1.jpg" alt="Yvonne with flowers">
                 </div>
                 <div class="media-item">
-                    <img src="https://images.unsplash.com/photo-1517841905536-39e6482a4e44" alt="Yvonne in a floral setting">
+                    <img src="von2.jpg" alt="Yvonne in a floral setting">
+                </div>
+                <div class="media-item">
+                    <video controls>
+                        <source src="von.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
                 </div>
             </div>
         </section>
@@ -380,17 +288,6 @@
                 On this Mother’s Day, we celebrate you with all our love and gratitude. <br>
                 Forever your loving family.
             </div>
-        </section>
-
-        <!-- Guestbook -->
-        <section id="guestbook-section">
-            <h2>Virtual Guestbook</h2>
-            <form id="guestbook-form">
-                <input type="text" id="guest-name" placeholder="Your Name" required>
-                <textarea id="guest-message" placeholder="Your Message for Yvonne" required></textarea>
-                <button class="btn" type="submit">Add Message</button>
-            </form>
-            <div id="guestbook-entries"></div>
         </section>
     </div>
 
@@ -411,52 +308,6 @@
             } else {
                 music.pause();
                 musicToggle.textContent = '🔇';
-            }
-        });
-
-        // Upload Media
-        const uploadArea = document.getElementById('upload-area');
-        const mediaUpload = document.getElementById('media-upload');
-        const mediaPreview = document.getElementById('media-preview');
-
-        uploadArea.addEventListener('click', () => mediaUpload.click());
-        uploadArea.addEventListener('dragover', (e) => e.preventDefault());
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            handleFiles(e.dataTransfer.files);
-        });
-
-        mediaUpload.addEventListener('change', () => handleFiles(mediaUpload.files));
-
-        function handleFiles(files) {
-            for (let file of files) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const div = document.createElement('div');
-                    div.className = 'media-item';
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    div.appendChild(img);
-                    mediaPreview.appendChild(div);
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // Guestbook
-        const guestbookForm = document.getElementById('guestbook-form');
-        const guestbookEntries = document.getElementById('guestbook-entries');
-
-        guestbookForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('guest-name').value.trim();
-            const message = document.getElementById('guest-message').value.trim();
-            if (name && message) {
-                const entry = document.createElement('div');
-                entry.className = 'guestbook-entry';
-                entry.innerHTML = `<strong>${name}</strong>: ${message}`;
-                guestbookEntries.prepend(entry);
-                guestbookForm.reset();
             }
         });
 
