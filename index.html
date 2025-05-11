@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Magical Mother’s Day for Yvonne</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,119 +13,109 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a0033, #4b0082);
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #1e1e2f, #3b2a5d);
             color: #fff;
             overflow-x: hidden;
             position: relative;
-            line-height: 1.6;
         }
 
-        /* Parallax Background with Nebula Effect */
+        /* Parallax Background */
         .parallax {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            background: url('https://images.unsplash.com/photo-1618005182384-9a9b2b2f3b9d') no-repeat center;
+            background-size: cover;
             z-index: -1;
-            opacity: 0.5;
-            animation: nebulaPulse 15s infinite alternate;
+            opacity: 0.3;
         }
 
-        @keyframes nebulaPulse {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.7; }
-        }
-
-        /* Floral Border */
-        .floral-border {
+        .parallax::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .floral-border img {
-            position: absolute;
-            width: 100px;
-            opacity: 0.8;
-            animation: floatFlower 6s infinite ease-in-out;
-        }
-
-        .floral-border img:nth-child(1) { top: 10%; left: 5%; }
-        .floral-border img:nth-child(2) { top: 20%; right: 10%; }
-        .floral-border img:nth-child(3) { bottom: 10%; left: 15%; }
-        .floral-border img:nth-child(4) { bottom: 20%; right: 5%; }
-
-        @keyframes floatFlower {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.3), rgba(147, 112, 219, 0.3));
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 80px 20px 40px;
-            position: relative;
-            z-index: 1;
+            padding: 60px 20px;
+            background: rgba(30, 30, 47, 0.7);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
 
         header h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
-            color: #ff69b4;
-            text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493;
-            animation: glowText 3s infinite alternate;
+            font-size: 4rem;
+            color: #ffb6c1;
+            text-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
         header p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #e6e6fa;
             margin-top: 10px;
-            text-shadow: 0 0 10px #9370db;
         }
 
         /* Container */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         /* Section Styling */
-        .section {
+        section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 105, 180, 0.3);
-            animation: slideUp 1s ease-out;
+            box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in;
         }
 
-        .section h2 {
+        section h2 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: #ff69b4;
+            font-size: 3rem;
+            color: #ffb6c1;
             text-align: center;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px #ff69b4;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
         }
 
-        /* Media Gallery */
-        .media-gallery {
+        /* Upload Section */
+        .upload-area {
+            border: 2px dashed #ffb6c1;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .upload-area:hover {
+            background: rgba(255, 182, 193, 0.2);
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+        }
+
+        .upload-area p {
+            font-size: 1.2rem;
+            color: #e6e6fa;
+        }
+
+        #media-preview {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
@@ -133,20 +123,18 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
         }
 
-        .media-item img, .media-item video {
+        .media-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.3s;
         }
 
-        .media-item:hover {
+        .media-item:hover img {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
         }
 
         .media-item::before {
@@ -157,106 +145,203 @@
             width: 100%;
             height: 100%;
             background: url('https://img.icons8.com/fluency/48/000000/flower.png') repeat;
-            opacity: 0.15;
-            z-index: 1;
-        }
-
-        .media-item video {
-            cursor: pointer;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
         /* Message Section */
-        .message-box {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255, 105, 180, 0.1);
+        #message-display {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            font-size: 1.6rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: #ffb6c1;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+            animation: scrollReveal 2s ease-in-out;
+        }
+
+        /* Guestbook Section */
+        #guestbook-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #guestbook-form input, #guestbook-form textarea {
+            padding: 12px;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
-            border: 2px solid rgba(255, 105, 180, 0.2);
-            animation: pulse 2s infinite alternate;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #guestbook-form input::placeholder, #guestbook-form textarea::placeholder {
+            color: #e6e6fa;
+            opacity: 0.7;
+        }
+
+        #guestbook-entries {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guestbook-entry {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+        }
+
+        .guestbook-entry strong {
+            color: #ffb6c1;
+        }
+
+        /* Button */
+        .btn {
+            background: linear-gradient(135deg, #ffb6c1, #9370db);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+        }
+
+        /* Music Toggle */
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ffb6c1, #9370db);
+            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+            transition: transform 0.3s;
+        }
+
+        #music-toggle:hover {
+            transform: scale(1.1);
         }
 
         /* Animations */
-        @keyframes glowText {
-            from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
-            to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 182, 193, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 182, 193, 0.8); }
         }
 
-        @keyframes pulse {
-            from { box-shadow: 0 0 10px #ff69b4; }
-            to { box-shadow: 0 0 20px #ff1493; }
+        @keyframes scrollReveal {
+            0% { opacity: 0; transform: scaleY(0); }
+            100% { opacity: 1; transform: scaleY(1); }
         }
 
-        @keyframes starTwinkle {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+        @keyframes bloom {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Starry Overlay */
-        .stars {
-            position: fixed;
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+
+        .flower {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: url('https://img.icons8.com/fluency/48/000000/flower.png') no-repeat center;
+            background-size: contain;
+            animation: bloom 3s ease-in-out infinite alternate;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.5));
+        }
+
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url('https://img.icons8.com/fluency/48/000000/hearts.png') no-repeat center;
+            background-size: contain;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.5));
+        }
+
+        /* Constellation for Yvonne’s Name */
+        .constellation {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 0;
+            z-index: -1;
         }
 
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            animation: starTwinkle 3s infinite;
+        .constellation canvas {
+            width: 100%;
+            height: 100%;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 { font-size: 3rem; }
-            .section h2 { font-size: 2.5rem; }
-            .media-gallery { grid-template-columns: 1fr; }
-            .message-box { font-size: 1.3rem; }
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+
+            #media-preview {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Parallax Background with Nebula -->
+    <!-- Parallax Background -->
     <div class="parallax"></div>
 
-    <!-- Floral Border -->
-    <div class="floral-border">
-        <img src="https://img.icons8.com/color/100/000000/cherry-blossom.png" alt="Floral">
-        <img src="https://img.icons8.com/color/100/000000/cherry-blossom.png" alt="Floral">
-        <img src="https://img.icons8.com/color/100/000000/cherry-blossom.png" alt="Floral">
-        <img src="https://img.icons8.com/color/100/000000/cherry-blossom.png" alt="Floral">
-    </div>
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="music-toggle">🎵</div>
 
-    <!-- Starry Overlay -->
-    <div class="stars">
-        <script>
-            function createStars(count) {
-                const starsContainer = document.querySelector('.stars');
-                for (let i = 0; i < count; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star';
-                    star.style.width = `${Math.random() * 3 + 1}px`;
-                    star.style.height = star.style.width;
-                    star.style.left = `${Math.random() * 100}%`;
-                    star.style.top = `${Math.random() * 100}%`;
-                    star.style.animationDelay = `${Math.random() * 3}s`;
-                    starsContainer.appendChild(star);
-                }
-            }
-            createStars(50);
-        </script>
+    <!-- Constellation for Yvonne’s Name -->
+    <div class="constellation">
+        <canvas id="constellation-canvas"></canvas>
     </div>
 
     <!-- Header -->
@@ -267,57 +352,205 @@
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Media Gallery -->
-        <div class="section">
+        <!-- Share Memories -->
+        <section id="upload-section">
             <h2>Share Memories</h2>
-            <div class="media-gallery">
+            <div class="upload-area" id="upload-area">
+                <p>Drag & drop photos or videos, or click to upload</p>
+                <input type="file" id="media-upload" accept="image/*,video/*" multiple hidden>
+            </div>
+            <div id="media-preview">
+                <!-- Preloaded Photos -->
                 <div class="media-item">
-                    <img src="von1.jpg" alt="Yvonne with flowers">
+                    <img src="https://images.unsplash.com/photo-1517841905536-39e6482a4e44" alt="Yvonne with flowers">
                 </div>
                 <div class="media-item">
-                    <img src="von2.jpg" alt="Yvonne in a floral setting">
-                </div>
-                <div class="media-item">
-                    <video controls>
-                        <source src="von.mp4" type="video/mp4">
-                        Your browser does not support the video element.
-                    </video>
+                    <img src="https://images.unsplash.com/photo-1517841905536-39e6482a4e44" alt="Yvonne in a floral setting">
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Message Section -->
-        <div class="section">
+        <!-- Heartfelt Message -->
+        <section id="message-section">
             <h2>A Message for Yvonne</h2>
-            <div class="message-box">
+            <div id="message-display">
                 Dearest Yvonne, <br>
                 You are the star that lights up our lives, a garden of love that blooms endlessly. <br>
                 Your laughter fills our hearts with joy, and your wisdom guides us through every storm. <br>
                 On this Mother’s Day, we celebrate you with all our love and gratitude. <br>
                 Forever your loving family.
             </div>
-        </div>
+        </section>
+
+        <!-- Guestbook -->
+        <section id="guestbook-section">
+            <h2>Virtual Guestbook</h2>
+            <form id="guestbook-form">
+                <input type="text" id="guest-name" placeholder="Your Name" required>
+                <textarea id="guest-message" placeholder="Your Message for Yvonne" required></textarea>
+                <button class="btn" type="submit">Add Message</button>
+            </form>
+            <div id="guestbook-entries"></div>
+        </section>
     </div>
 
+    <!-- Animations -->
+    <div class="flower" style="top: 10%; left: 5%;"></div>
+    <div class="flower" style="top: 80%; right: 5%;"></div>
+    <div class="heart" style="top: 50%; left: 10%;"></div>
+    <div class="heart" style="top: 30%; right: 15%;"></div>
+
     <script>
-        // Preload and enhance media hover effects
-        const mediaItems = document.querySelectorAll('.media-item');
-        mediaItems.forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.filter = 'brightness(1.2)';
-            });
-            item.addEventListener('mouseout', () => {
-                item.style.filter = 'brightness(1)';
-            });
+        // Music Toggle
+        const music = document.getElementById('background-music');
+        const musicToggle = document.getElementById('music-toggle');
+        musicToggle.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicToggle.textContent = '🎵';
+            } else {
+                music.pause();
+                musicToggle.textContent = '🔇';
+            }
         });
 
-        // Video play on click for better UX
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            video.addEventListener('click', () => {
-                if (video.paused) video.play();
-                else video.pause();
+        // Upload Media
+        const uploadArea = document.getElementById('upload-area');
+        const mediaUpload = document.getElementById('media-upload');
+        const mediaPreview = document.getElementById('media-preview');
+
+        uploadArea.addEventListener('click', () => mediaUpload.click());
+        uploadArea.addEventListener('dragover', (e) => e.preventDefault());
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            handleFiles(e.dataTransfer.files);
+        });
+
+        mediaUpload.addEventListener('change', () => handleFiles(mediaUpload.files));
+
+        function handleFiles(files) {
+            for (let file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const div = document.createElement('div');
+                    div.className = 'media-item';
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    div.appendChild(img);
+                    mediaPreview.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Guestbook
+        const guestbookForm = document.getElementById('guestbook-form');
+        const guestbookEntries = document.getElementById('guestbook-entries');
+
+        guestbookForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value.trim();
+            const message = document.getElementById('guest-message').value.trim();
+            if (name && message) {
+                const entry = document.createElement('div');
+                entry.className = 'guestbook-entry';
+                entry.innerHTML = `<strong>${name}</strong>: ${message}`;
+                guestbookEntries.prepend(entry);
+                guestbookForm.reset();
+            }
+        });
+
+        // Constellation Animation for Yvonne’s Name
+        const canvas = document.getElementById('constellation-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const namePoints = [
+            { x: 300, y: 200 },  // Y
+            { x: 320, y: 180 },
+            { x: 340, y: 200 },
+            { x: 320, y: 220 },
+            { x: 360, y: 200 },  // V
+            { x: 380, y: 180 },
+            { x: 400, y: 200 },
+            { x: 420, y: 180 },  // O
+            { x: 440, y: 200 },
+            { x: 420, y: 220 },
+            { x: 400, y: 200 },
+            { x: 460, y: 200 },  // N
+            { x: 480, y: 180 },
+            { x: 500, y: 200 },
+            { x: 480, y: 220 },
+            { x: 520, y: 200 },  // N
+            { x: 540, y: 180 },
+            { x: 560, y: 200 },
+            { x: 540, y: 220 },
+            { x: 580, y: 200 },  // E
+            { x: 580, y: 180 },
+            { x: 600, y: 180 },
+            { x: 580, y: 200 },
+            { x: 600, y: 200 },
+            { x: 580, y: 220 },
+            { x: 600, y: 220 }
+        ];
+
+        for (let i = 0; i < 100; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 2,
+                opacity: Math.random()
             });
+        }
+
+        function drawConstellation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw stars
+            stars.forEach(star => {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+                star.opacity += Math.random() * 0.02 - 0.01;
+                if (star.opacity > 1) star.opacity = 1;
+                if (star.opacity < 0) star.opacity = 0;
+            });
+
+            // Draw Yvonne’s name constellation
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(255, 182, 193, 0.8)';
+            ctx.lineWidth = 2;
+            namePoints.forEach((point, index) => {
+                if (index === 0) {
+                    ctx.moveTo(point.x, point.y);
+                } else {
+                    ctx.lineTo(point.x, point.y);
+                }
+            });
+            ctx.stroke();
+
+            // Draw glowing dots at name points
+            namePoints.forEach(point => {
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 182, 193, 1)';
+                ctx.fill();
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(255, 182, 193, 0.8)';
+            });
+
+            requestAnimationFrame(drawConstellation);
+        }
+
+        drawConstellation();
+
+        // Adjust canvas size on resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         });
     </script>
 </body>
