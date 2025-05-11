@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Mother's Day from Cosmos Coderr</title>
+    <title>Happy Mother's Day 2025 from Cosmos Coderr</title>
     <style>
         * {
             margin: 0;
@@ -13,136 +13,213 @@
         }
 
         body {
-            background: linear-gradient(135deg, #fff0f5, #e6e6fa);
+            background: linear-gradient(120deg, #ffcccc, #ffe6f2, #e6e6fa);
             color: #333;
             overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
         }
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInDown 1.5s ease-out;
         }
 
         header h1 {
             font-family: 'Georgia', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #d81b60;
-            animation: fadeIn 2s ease-in;
+            text-shadow: 2px 2px 10px rgba(216, 27, 96, 0.3);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #555;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .tribute {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
             justify-content: center;
+            perspective: 1000px;
         }
 
         .card {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 350px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 0 12px 40px rgba(216, 27, 96, 0.3);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
-            border-bottom: 4px solid #f06292;
+            border-bottom: 5px solid #f06292;
+            filter: brightness(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover img {
+            filter: brightness(1.3);
         }
 
         .card-content {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .card-content h2 {
             font-family: 'Georgia', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #c2185b;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 5px rgba(194, 24, 91, 0.2);
         }
 
         .card-content p {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #444;
         }
 
         .photo-gallery {
             text-align: center;
-            margin: 40px 0;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .photo-gallery h2 {
             font-family: 'Georgia', serif;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #d81b60;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(216, 27, 96, 0.3);
         }
 
-        .gallery-img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .gallery-slideshow {
+            max-width: 700px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .gallery-slide {
+            display: none;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-slide.active {
             display: block;
+        }
+
+        .gallery-controls {
+            margin-top: 20px;
+        }
+
+        .gallery-controls button {
+            background: #f06292;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0 10px;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-controls button:hover {
+            background: #c2185b;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: #f06292;
+            padding: 30px;
+            background: linear-gradient(90deg, #f06292, #c2185b);
             color: #fff;
-            font-size: 1.1rem;
-            margin-top: 40px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 10;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .audio-toggle {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .audio-toggle button {
+            background: #f06292;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .audio-toggle button:hover {
+            background: #c2185b;
+        }
+
+        /* Particle Animation */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .card {
                 max-width: 100%;
             }
 
-            .gallery-img {
+            .gallery-slide {
                 max-width: 90%;
             }
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <header>
         <h1>Happy Mother's Day 2025</h1>
         <p>A heartfelt tribute to the incredible women in our family</p>
@@ -151,7 +228,7 @@
     <div class="container">
         <div class="tribute">
             <div class="card">
-                <img src="https://via.placeholder.com/350x200?text=Yvonne" alt="Yvonne">
+                <img src="https://via.placeholder.com/350x250?text=Yvonne" alt="Yvonne">
                 <div class="card-content">
                     <h2>Yvonne, My Amazing Mum</h2>
                     <p>Your love and strength light up our lives every day. Thank you for being our rock, our guide, and our biggest cheerleader. Happy Mother’s Day!</p>
@@ -159,7 +236,7 @@
             </div>
 
             <div class="card">
-                <img src="https://via.placeholder.com/350x200?text=Helena" alt="Helena">
+                <img src="https://via.placeholder.com/350x250?text=Helena" alt="Helena">
                 <div class="card-content">
                     <h2>Helena, Our Beloved Grandma</h2>
                     <p>Your wisdom and warmth make every moment special. Your stories and hugs are treasures we hold dear. Happy Mother’s Day!</p>
@@ -167,7 +244,7 @@
             </div>
 
             <div class="card">
-                <img src="https://via.placeholder.com/350x200?text=Nana+Afua" alt="Nana Afua">
+                <img src="https://via.placeholder.com/350x250?text=Nana+Afua" alt="Nana Afua">
                 <div class="card-content">
                     <h2>Nana Afua, Our Wonderful Auntie</h2>
                     <p>Your energy and care bring joy to us all. Thank you for your endless support and love. Happy Mother’s Day!</p>
@@ -177,7 +254,20 @@
 
         <div class="photo-gallery">
             <h2>Our Beautiful Family</h2>
-            <img class="gallery-img" src="https://via.placeholder.com/600x400?text=Family+Photo" alt="Family Photo">
+            <div class="gallery-slideshow">
+                <img class="gallery-slide active" src="https://via.placeholder.com/700x400?text=Family+Photo+1" alt="Family Photo 1">
+                <img class="gallery-slide" src="https://via.placeholder.com/700x400?text=Family+Photo+2" alt="Family Photo 2">
+                <img class="gallery-slide" src="https://via.placeholder.com/700x400?text=Family+Photo+3" alt="Family Photo 3">
+            </div>
+            <div class="gallery-controls">
+                <button onclick="plusSlides(-1)">Previous</button>
+                <button onclick="plusSlides(1)">Next</button>
+            </div>
+        </div>
+
+        <div class="audio-toggle">
+            <button onclick="toggleAudio()">Toggle Mother’s Day Melody</button>
+            <audio id="background-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
         </div>
     </div>
 
@@ -185,16 +275,58 @@
         Crafted with love by Cosmos Coderr (Nana Fosu) | Honoring the Queens of Our Family
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.js"></script>
     <script>
-        // Add smooth scroll for any anchor links (if added later)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        /* Particles.js Configuration */
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#f06292' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: false },
+                move: { enable: true, speed: 2, direction: 'none', random: true }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' } }
+            }
         });
+
+        /* Slideshow Functionality */
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("gallery-slide");
+            if (n >= slides.length) { slideIndex = 0 }
+            if (n < 0) { slideIndex = slides.length - 1 }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex].style.display = "block";
+        }
+
+        /* Audio Toggle */
+        let audio = document.getElementById("background-audio");
+        let isPlaying = false;
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play();
+                isPlaying = true;
+            }
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => plusSlides(1), 5000);
     </script>
 </body>
 </html>
