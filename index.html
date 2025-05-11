@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother's Day Keepsake for Mum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background: linear-gradient(135deg, #f8e1e9, #f6c6d8);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #d84a7b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d84a7b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Upload Section */
+        .upload-area {
+            border: 2px dashed #d84a7b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #f6c6d8;
+        }
+
+        .upload-area p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        #media-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        #media-preview img, #media-preview video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Message Section */
+        #message-editor {
+            width: 100%;
+            min-height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .btn {
+            background: #d84a7b;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #b73e65;
+            transform: scale(1.05);
+        }
+
+        #message-display {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fef6f8;
+            border-radius: 10px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #333;
+            display: none;
+        }
+
+        /* Guestbook Section */
+        #guestbook-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #guestbook-form input, #guestbook-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+        }
+
+        #guestbook-entries {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guestbook-entry {
+            background: #fef6f8;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .guestbook-entry strong {
+            color: #d84a7b;
+        }
+
+        /* Music Toggle */
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #d84a7b;
+            color: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        #music-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bloom {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://img.icons8.com/color/48/000000/flower.png') no-repeat center;
+            background-size: contain;
+            animation: bloom 2s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://img.icons8.com/fluency/48/000000/hearts.png') no-repeat center;
+            background-size: contain;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="music-toggle">🎵</div>
+
+    <!-- Header -->
+    <header>
+        <h1>A Keepsake for My Dearest Mum</h1>
+        <p>Celebrate Mother's Day with love, memories, and heartfelt messages</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Upload Photos/Videos -->
+        <section id="upload-section">
+            <h2>Share Memories</h2>
+            <div class="upload-area" id="upload-area">
+                <p>Drag & drop photos or videos, or click to upload</p>
+                <input type="file" id="media-upload" accept="image/*,video/*" multiple hidden>
+            </div>
+            <div id="media-preview"></div>
+        </section>
+
+        <!-- Write Message -->
+        <section id="message-section">
+            <h2>Write a Heartfelt Message</h2>
+            <textarea id="message-editor" placeholder="Dear Mum, you mean the world to me..."></textarea>
+            <button class="btn" onclick="saveMessage()">Save Message</button>
+            <div id="message-display"></div>
+        </section>
+
+        <!-- Guestbook -->
+        <section id="guestbook-section">
+            <h2>Virtual Guestbook</h2>
+            <form id="guestbook-form">
+                <input type="text" id="guest-name" placeholder="Your Name" required>
+                <textarea id="guest-message" placeholder="Your Message for Mum" required></textarea>
+                <button class="btn" type="submit">Add Message</button>
+            </form>
+            <div id="guestbook-entries"></div>
+        </section>
+    </div>
+
+    <!-- Animations -->
+    <div class="flower" style="top: 10%; left: 5%;"></div>
+    <div class="flower" style="top: 80%; right: 5%;"></div>
+    <div class="heart" style="top: 50%; left: 10%;"></div>
+    <div class="heart" style="top: 30%; right: 15%;"></div>
+
+    <script>
+        // Music Toggle
+        const music = document.getElementById('background-music');
+        const musicToggle = document.getElementById('music-toggle');
+        musicToggle.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicToggle.textContent = '🎵';
+            } else {
+                music.pause();
+                musicToggle.textContent = '🔇';
+            }
+        });
+
+        // Upload Media
+        const uploadArea = document.getElementById('upload-area');
+        const mediaUpload = document.getElementById('media-upload');
+        const mediaPreview = document.getElementById('media-preview');
+
+        uploadArea.addEventListener('click', () => mediaUpload.click());
+        uploadArea.addEventListener('dragover', (e) => e.preventDefault());
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            handleFiles(e.dataTransfer.files);
+        });
+
+        mediaUpload.addEventListener('change', () => handleFiles(mediaUpload.files));
+
+        function handleFiles(files) {
+            for (let file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const div = document.createElement('div');
+                    if (file.type.startsWith('image/')) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        div.appendChild(img);
+                    } else if (file.type.startsWith('video/')) {
+                        const video = document.createElement('video');
+                        video.src = e.target.result;
+                        video.controls = true;
+                        div.appendChild(video);
+                    }
+                    mediaPreview.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Save Message
+        function saveMessage() {
+            const editor = document.getElementById('message-editor');
+            const display = document.getElementById('message-display');
+            const message = editor.value.trim();
+            if (message) {
+                display.textContent = message;
+                display.style.display = 'block';
+                editor.value = '';
+                // TODO: Save to backend (e.g., Firebase or MongoDB)
+            }
+        }
+
+        // Guestbook
+        const guestbookForm = document.getElementById('guestbook-form');
+        const guestbookEntries = document.getElementById('guestbook-entries');
+
+        guestbookForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('guest-name').value.trim();
+            const message = document.getElementById('guest-message').value.trim();
+            if (name && message) {
+                const entry = document.createElement('div');
+                entry.className = 'guestbook-entry';
+                entry.innerHTML = `<strong>${name}</strong>: ${message}`;
+                guestbookEntries.prepend(entry);
+                guestbookForm.reset();
+                // TODO: Save to backend (e.g., MongoDB)
+            }
+        });
+
+        // Placeholder for backend integration
+        console.log('Backend integration needed for persistent storage and file uploads.');
+    </script>
+</body>
+</html>
